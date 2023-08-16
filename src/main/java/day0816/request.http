@@ -1,0 +1,15 @@
+GET http://localhost:8080/iae_web2_war/RequestServlet4?username=用户名-GET&password=secret
+
+###
+POST http://localhost:8080/iae_web2_war/RequestServlet4
+Content-Type: application/x-www-form-urlencoded
+
+username=用户名-POST&password=secret
+
+###
+POST http://localhost:8080/iae_web2_war/RequestServlet3
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=secret
+
+###
