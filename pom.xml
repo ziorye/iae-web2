@@ -39,6 +39,12 @@
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>3.0.1</version>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.26</version>
+      <optional>true</optional>
+    </dependency>
   </dependencies>
   <build>
     <finalName>iae_web2</finalName>
