@@ -48,9 +48,9 @@ public class LoginServlet extends HttpServlet {
 
         if ("admin@example.com".equals(email)) {
             request.setAttribute("users", users);
-            request.getRequestDispatcher("/day0825/backend/users.jsp").forward(request, response);
+            request.getRequestDispatcher("/backend/users").forward(request, response);
         } else {
-            request.getRequestDispatcher("/day0825/dashboard.jsp").forward(request, response);
+            request.getRequestDispatcher("/user").forward(request, response);
         }
     }
 }

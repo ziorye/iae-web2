@@ -14,6 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户管理</title>
+    <base href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" %>">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="vendor/adminlte/fonts/fonts.css">
     <!-- Font Awesome -->
@@ -78,12 +79,12 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link ">
+                        <a href="backend/dashboard" class="nav-link ">
                             <i class="nav-icon fas fa-tachometer-alt"></i> <p>Dashboard</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link  active">
+                        <a href="backend/users" class="nav-link  active">
                             <i class="nav-icon fas fa-users"></i> <p>Users</p>
                         </a>
                     </li>
