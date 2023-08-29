@@ -1,30 +1,28 @@
 <%--
   Created by IntelliJ IDEA.
   User: who-am-i
-  Date: 8/25/23
-  Time: 3:50 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page isELIgnored ="false" %>
+<%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 
 <html class="h-100">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>登录</title>
+    <title>注册</title>
     <meta name="description" content="有想法就去做，努力将想法变成现实">
     <meta name="keywords" content="学,做,学习,实作">
-    <base href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" %>">
     <link rel="stylesheet" href="build/assets/app.css"></link>
 </head>
 <body class="d-flex flex-column h-100">
 <header>
     <nav class="navbar navbar-expand-lg navbar-light navbar-site mb-2rem">
         <div class="container">
-            <a class="navbar-brand" href="login" title="example">
+            <a class="navbar-brand" href="#" title="example">
                 <svg class="align-top" width="93px" height="32px" viewBox="0 0 278.188 90.5" xmlns="http://www.w3.org/2000/svg">
                     <g id="xz-logo" transform="translate(-1185.953 -542)">
                         <path id="lt" transform="translate(1184 614)" fill="#212529" d="M1.953-25.1a12.346,12.346,0,0,1,1.953-6.445,31.025,31.025,0,0,1,5.176-6.3A51.134,51.134,0,0,1,16.406-43.6a73.862,73.862,0,0,1,8.35-4.736,53.007,53.007,0,0,1,8.3-3.223,25.987,25.987,0,0,1,7.08-1.172,9.818,9.818,0,0,1-1.416,5.176,18.77,18.77,0,0,1-3.76,4.395,48.709,48.709,0,0,1-5.225,3.955q-2.881,1.9-5.664,3.76T18.75-31.543a19.858,19.858,0,0,0-4.1,4.395,1.06,1.06,0,0,1-.2.391v1.172a3.789,3.789,0,0,0,.2.488,5.388,5.388,0,0,1,.928.977A4.47,4.47,0,0,0,16.7-23.047a25.809,25.809,0,0,0,2.295,1.465q1.807,1.074,4.2,2.637t5.078,3.223q2.686,1.66,5.029,3.223t4.1,2.686Q39.16-8.691,39.844-8.3a7.186,7.186,0,0,1,1.025.928A7.186,7.186,0,0,1,41.8-6.348a1.843,1.843,0,0,0,.1.586,1.336,1.336,0,0,0,.049.293,1.336,1.336,0,0,1,.049.293.8.8,0,0,1-.049.244.8.8,0,0,0-.049.244,1.607,1.607,0,0,0-.1.488,6.594,6.594,0,0,1-.879,1.172q-.684.781-1.318,1.416T38.379-.488A1.871,1.871,0,0,1,37.6,0a15.722,15.722,0,0,1-4.834-1.221,66.153,66.153,0,0,1-7.227-3.271Q21.582-6.543,17.432-9.18a78.91,78.91,0,0,1-7.617-5.469A38.4,38.4,0,0,1,4.15-20.215,8.212,8.212,0,0,1,1.953-25.1Z"/>
@@ -51,7 +49,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto d-flex align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center " href="login#">
+                        <a class="nav-link d-flex align-items-center " href="#">
                             <svg class="mr-2 mb-0" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
                             </svg>
@@ -59,7 +57,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center " href="login#">
+                        <a class="nav-link d-flex align-items-center " href="#">
                             <svg class="mr-2 mb-0" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
                                 <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
@@ -82,29 +80,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">登录</div>
+                <div class="card-header">注册</div>
 
                 <div class="card-body">
-                    <p class="text-center text-muted font-size-12"><span class="text-primary">✔（推荐方案）</span>使用第三方账号登录</p>
-                    <p class="text-center">
-                        <a class="btn btn-outline-primary" href="login#" role="button">
-                            <svg class="bi bi-github" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                            </svg>
-                            GitHub
-                        </a>
-                    </p>
-                    <p class="mt-5 text-center text-muted font-size-12">（备选方案）邮箱、密码登录</p>
                     <c:if test="${error != null}">
                         <p class="text-center text-primary">${error}</p>
                     </c:if>
-
-                    <form method="POST" action="login">
+                    <form method="POST" action="register">
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">邮箱</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control " name="email" value="${cookie.email.value}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control " name="email" required autocomplete="email" value="">
 
                             </div>
                         </div>
@@ -113,37 +100,16 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">密码</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control " name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control " name="password" required autocomplete="password" value="">
 
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember-me" id="remember-me" >
-
-                                    <label class="form-check-label" for="remember-me">
-                                        记住我
-                                    </label>
-                                </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    登录
+                                    注册
                                 </button>
-
-                                <a class="btn btn-link font-size-12 text-muted" href="login#">
-                                    忘记密码
-                                </a>
-
-                                <a class="btn btn-link font-size-12 text-muted" href="register">
-                                    注册新账号
-                                </a>
                             </div>
                         </div>
                     </form>
@@ -153,7 +119,13 @@
     </div>
 </div>
 
-<%@ include file="partials/footer.jsp" %>
+<footer class="blog-footer mt-auto">
+    <div class="container text-muted">
+        <p class="text-center text-lg-left">
+            <span>Designed by <a href="#">@you</a> - From X to Z</span>
+        </p>
+    </div>
+</footer>
 <script type="module" src="build/assets/app.js"></script>
 </body>
 </html>

@@ -8,14 +8,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/register")
+public class RegisterServlet extends HttpServlet {
     List<User> users = new ArrayList<>();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         if (config.getServletContext().getAttribute("users") == null) {
-            System.out.println("=== LoginServlet@init ===");
+            System.out.println("=== RegisterServlet@init ===");
 
             for (int i = 0; i < 10; i++) {
                 users.add(User.builder().email("user"+i+"@example.com").password("password").name("user"+i).build());
@@ -30,29 +30,32 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/day0825/login.jsp").forward(request, response);
+        request.getRequestDispatcher("day0825/register.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
 
-        User user = User.builder().email(email).password(password).name(email.substring(0, email.indexOf("@"))).build();
-
-        if (!users.contains(user)) {
-            request.setAttribute("error", "用户名或密码错误");
-            request.getRequestDispatcher("/day0825/login.jsp").forward(request, response);
-            return;
+        boolean exist = false;
+        for (User user : users) {
+            if (user.getEmail().equals(email)) {
+                request.setAttribute("error", "邮箱已被使用");
+                request.getRequestDispatcher("day0825/register.jsp").forward(request, response);
+                exist = true;
+                break;
+            }
         }
 
-        request.setAttribute("user", user);
+        if (!exist) {
+            String password = request.getParameter("password");
+            User user = User.builder().email(email).password(password).name(email.substring(0, email.indexOf("@"))).build();
+            users.add(user);
 
-        if ("admin@example.com".equals(email)) {
-            request.setAttribute("users", users);
-            request.getRequestDispatcher("/backend/users").forward(request, response);
-        } else {
-            request.getRequestDispatcher("/user").forward(request, response);
+            Cookie cookie = new Cookie("email", email);
+            response.addCookie(cookie);
+
+            response.sendRedirect("login");
         }
     }
 }
