@@ -105,6 +105,15 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label text-lg-right">验证码</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="captcha"
+                                       style="display:inline;" required>
+                                <img class="mt-2" src="captcha" onclick="this.src='captcha?'+Math.random()">
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

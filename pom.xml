@@ -45,6 +45,11 @@
       <version>1.18.26</version>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>com.github.whvcse</groupId>
+      <artifactId>easy-captcha</artifactId>
+      <version>1.6.2</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>iae_web2</finalName>

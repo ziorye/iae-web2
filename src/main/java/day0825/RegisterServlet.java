@@ -48,6 +48,16 @@ public class RegisterServlet extends HttpServlet {
         }
 
         if (!exist) {
+            String captcha = request.getParameter("captcha");
+            // 获取session中的验证码
+            String sessionCode = (String) request.getSession().getAttribute("captcha");
+            // 判断验证码
+            if (captcha == null || !sessionCode.equals(captcha.trim().toLowerCase())) {
+                request.setAttribute("error", "验证码不正确");
+                request.getRequestDispatcher("day0825/register.jsp").forward(request, response);
+                return;
+            }
+
             String password = request.getParameter("password");
             User user = User.builder().email(email).password(password).name(email.substring(0, email.indexOf("@"))).build();
             users.add(user);
