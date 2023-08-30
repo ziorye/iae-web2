@@ -1,4 +1,4 @@
-package day0829;
+package day0830;
 
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
