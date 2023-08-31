@@ -4,4 +4,19 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <filter>
+    <filter-name>ZFilter</filter-name>
+    <filter-class>day0831.ZFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>MyFilter</filter-name>
+    <url-pattern>/testFilter</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>ZFilter</filter-name>
+    <url-pattern>/testFilter</url-pattern>
+  </filter-mapping>
 </web-app>
