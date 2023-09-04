@@ -55,6 +55,11 @@
       <artifactId>iae-captcha</artifactId>
       <version>1.0.1</version>
     </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.2.16</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>iae_web2</finalName>
