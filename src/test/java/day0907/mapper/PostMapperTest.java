@@ -33,4 +33,13 @@ public class PostMapperTest {
     void test() {
         Assertions.assertTrue(true);
     }
+
+    @Test
+    void selectAll() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+            List<Post> posts = mapper.selectAll();
+            Assertions.assertTrue(posts.size() > 0);
+        }
+    }
 }
