@@ -56,4 +56,12 @@ public class PostMapperTest {
             Assertions.assertEquals("npm-registry-speedup", post.getSlug());
         }
     }
+
+    @Test
+    void testSqlStatementWithSpecialTag() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            List<Object> objects = sqlSession.selectList("day0907.mybatis.mapper.PostMapper.sqlStatementWithSpecialTag");
+            Assertions.assertTrue(objects.size() > 0);
+        }
+    }
 }

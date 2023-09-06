@@ -24,6 +24,17 @@
 		from post
 		where id = #{id};
 	</select>
+	<select id="sqlStatementWithSpecialTag" resultMap="postResultMap">
+		<!--select * from post where id < 10000;-->
+		/*select * from post where id &lt; 10000;*/
+		select *
+		from post
+		where id
+		<![CDATA[
+		    <
+		]]>
+		1000;
+	</select>
 </mapper>
 
 
