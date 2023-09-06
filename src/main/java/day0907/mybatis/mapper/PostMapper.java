@@ -18,4 +18,6 @@ public interface PostMapper {
     List<Post> selectByCondition(Map<String, Object> map);
 
     List<Post> selectByConditionWithDynamicSQL(Map<String, Object> map);
+
+    List<Post> selectByOneCondition(Map<String, Object> map);
 }

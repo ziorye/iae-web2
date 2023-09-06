@@ -57,6 +57,23 @@
 			</if>
 		</where>
 	</select>
+	<select id="selectByOneCondition" resultMap="postResultMap">
+		select *
+		from post
+		<where>
+			<choose>
+				<when test="status != null">
+					status = #{status}
+				</when>
+				<when test="title != null and title != ''">
+					title like #{title}
+				</when>
+				<when test="content != null and content != ''">
+					content like #{content}
+				</when>
+			</choose>
+		</where>
+	</select>
 </mapper>
 
 

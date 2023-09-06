@@ -123,4 +123,20 @@ public class PostMapperTest {
             Assertions.assertEquals(4, posts.size());
         }
     }
+
+    @Test
+    void selectByOneCondition() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+
+            Map<String, Object> map = new HashMap<>();
+//            map.put("status", 1);
+            map.put("title", "npm%");
+//            map.put("content", "%慢%");
+
+            List<Post> posts = mapper.selectByOneCondition(map);
+
+            Assertions.assertEquals(1, posts.size());
+        }
+    }
 }
