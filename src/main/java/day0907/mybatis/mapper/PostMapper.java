@@ -22,4 +22,6 @@ public interface PostMapper {
     List<Post> selectByOneCondition(Map<String, Object> map);
 
     void add(Post post);
+
+    void update(Map<String, Object> map);
 }

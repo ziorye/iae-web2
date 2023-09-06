@@ -165,4 +165,33 @@ public class PostMapperTest {
             Assertions.assertTrue(post.getId() > 0);
         }
     }
+
+    @Test
+    void update() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+
+            Post postAdd = new Post();
+            LocalDateTime now = LocalDateTime.now();
+            postAdd.setTitle("测试增加功能-" + now);
+            postAdd.setContent("content-" + now);
+            postAdd.setCreatedAt(new Date());
+            mapper.add(postAdd);
+
+            // === === ===
+
+            Map<String, Object> post = new HashMap<>();
+            post.put("id", postAdd.getId());
+
+            post.put("title", postAdd.getTitle() + "-update");
+            post.put("slug", "slug-" + now);
+            post.put("cover", "cover-" + now);
+            post.put("description", "测试更新功能-" + now);
+            post.put("updatedAt", new Date());
+
+            mapper.update(post);
+
+            Assertions.assertEquals(postAdd.getTitle() + "-update", post.get("title"));
+        }
+    }
 }

@@ -79,6 +79,43 @@
 		insert into post (title, slug, cover, description, content, status, user_id, view_count, created_at, updated_at)
 		values (#{title}, #{slug}, #{cover}, #{description}, #{content}, #{status}, #{userId}, #{viewCount}, #{createdAt}, #{updatedAt})
 	</insert>
+
+	<update id="update">
+		update post
+		<set>
+			<if test="title != null">
+				title = #{title},
+			</if>
+			<if test="slug != null">
+				slug = #{slug},
+			</if>
+			<if test="cover != null">
+				cover = #{cover},
+			</if>
+			<if test="description != null">
+				description = #{description},
+			</if>
+			<if test="content != null">
+				content = #{content},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="userId != null">
+				user_id = #{userId},
+			</if>
+			<if test="viewCount != null">
+				view_count = #{viewCount},
+			</if>
+			<if test="createdAt != null">
+				created_at = #{createdAt},
+			</if>
+			<if test="updatedAt != null">
+				updated_at = #{updatedAt},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
 </mapper>
 
 
