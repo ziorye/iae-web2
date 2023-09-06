@@ -11,4 +11,6 @@ public interface PostMapper {
     Post selectById(long id);
 
     List<Post> selectByCondition(@Param("status") int status, @Param("title") String title, @Param("content") String content);
+
+    List<Post> selectByCondition(Post post);
 }
