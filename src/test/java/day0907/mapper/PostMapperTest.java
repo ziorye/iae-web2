@@ -107,4 +107,20 @@ public class PostMapperTest {
             Assertions.assertTrue(posts.size() > 0);
         }
     }
+
+    @Test
+    void selectByConditionWithDynamicSQL() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+
+            Map<String, Object> map = new HashMap<>();
+            map.put("status", 1);
+            map.put("title", "");
+            map.put("content", "%慢%");
+
+            List<Post> posts = mapper.selectByConditionWithDynamicSQL(map);
+
+            Assertions.assertEquals(4, posts.size());
+        }
+    }
 }

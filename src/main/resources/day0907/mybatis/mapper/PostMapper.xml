@@ -42,6 +42,21 @@
 		and title like #{title}
 		and content like #{content}
 	</select>
+	<select id="selectByConditionWithDynamicSQL" resultMap="postResultMap">
+		select *
+		from post
+		<where>
+		    <if test="status != null">
+				and status = #{status}
+			</if>
+		    <if test="title != null and title != ''">
+				and title like #{title}
+			</if>
+		    <if test="content != null and content != ''">
+				and content like #{content}
+			</if>
+		</where>
+	</select>
 </mapper>
 
 
