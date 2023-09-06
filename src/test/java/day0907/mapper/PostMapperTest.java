@@ -194,4 +194,30 @@ public class PostMapperTest {
             Assertions.assertEquals(postAdd.getTitle() + "-update", post.get("title"));
         }
     }
+
+    @Test
+    void deleteById() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+
+            Post postAdd = new Post();
+            LocalDateTime now = LocalDateTime.now();
+            postAdd.setTitle("title-for-deleteById-" + now);
+            postAdd.setContent("content-for-deleteById-" + now);
+            postAdd.setCreatedAt(new Date());
+            mapper.add(postAdd);
+
+            // === === ===
+
+            long id = postAdd.getId();
+
+            mapper.delById(id);
+
+            // === === ===
+
+            Post post = mapper.selectById(id);
+
+            Assertions.assertNull(post);
+        }
+    }
 }

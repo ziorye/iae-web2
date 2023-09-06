@@ -24,4 +24,6 @@ public interface PostMapper {
     void add(Post post);
 
     void update(Map<String, Object> map);
+
+    void delById(long id);
 }
