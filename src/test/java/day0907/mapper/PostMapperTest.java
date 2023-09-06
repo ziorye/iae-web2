@@ -64,4 +64,13 @@ public class PostMapperTest {
             Assertions.assertTrue(objects.size() > 0);
         }
     }
+
+    @Test
+    void selectByCondition() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+            List<Post> posts = mapper.selectByCondition(1, "npm%", "%慢%");
+            Assertions.assertTrue(posts.size() > 0);
+        }
+    }
 }

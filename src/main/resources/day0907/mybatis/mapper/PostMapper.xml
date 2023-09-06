@@ -35,6 +35,13 @@
 		]]>
 		1000;
 	</select>
+	<select id="selectByCondition" resultMap="postResultMap">
+		select *
+		from post
+		where status = #{status}
+		and title like #{title}
+		and content like #{content}
+	</select>
 </mapper>
 
 
