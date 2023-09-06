@@ -4,8 +4,12 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="day0907.mybatis.mapper.PostMapper">
+	<sql id="select-column">
+		id, title, slug, cover, description, content, status, user_id, view_count, created_at as createdAt, updated_at
+	</sql>
+
 	<select id="selectAll" resultType="Post">
-		select id, title, slug, cover, description, content, status, user_id, view_count, created_at as createdAt, updated_at from post;
+		select <include refid="select-column"/>  from post;
 	</select>
 </mapper>
 
