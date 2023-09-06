@@ -74,6 +74,11 @@
 			</choose>
 		</where>
 	</select>
+
+	<insert id="add" useGeneratedKeys="true" keyProperty="id">
+		insert into post (title, slug, cover, description, content, status, user_id, view_count, created_at, updated_at)
+		values (#{title}, #{slug}, #{cover}, #{description}, #{content}, #{status}, #{userId}, #{viewCount}, #{createdAt}, #{updatedAt})
+	</insert>
 </mapper>
 
 

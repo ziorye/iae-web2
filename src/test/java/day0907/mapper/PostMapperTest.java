@@ -11,6 +11,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -137,6 +139,30 @@ public class PostMapperTest {
             List<Post> posts = mapper.selectByOneCondition(map);
 
             Assertions.assertEquals(1, posts.size());
+        }
+    }
+
+    @Test
+    void add() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+
+            Post post = new Post();
+            LocalDateTime now = LocalDateTime.now();
+            post.setTitle("测试增加功能-" + now);
+            post.setSlug("slug-" + now);
+            post.setCover("cover-" + now);
+            post.setDescription("description-" + now);
+            post.setContent("测试增加功能的内容");
+            post.setStatus(1);
+            post.setUserId(1);
+            post.setViewCount(0);
+            post.setCreatedAt(new Date());
+            post.setUpdatedAt(null);
+
+            mapper.add(post);
+
+            Assertions.assertTrue(post.getId() > 0);
         }
     }
 }
