@@ -8,8 +8,15 @@
 		id, title, slug, cover, description, content, status, user_id, view_count, created_at as createdAt, updated_at
 	</sql>
 
-	<select id="selectAll" resultType="Post">
-		select <include refid="select-column"/>  from post;
+	<resultMap id="postResultMap" type="post">
+		<result column="user_id" property="userId"/>
+		<result column="view_count" property="viewCount"/>
+		<result column="created_at" property="createdAt"/>
+		<result column="updated_at" property="updatedAt"/>
+	</resultMap>
+
+	<select id="selectAll" resultMap="postResultMap">
+		select * from post;
 	</select>
 </mapper>
 

@@ -41,6 +41,9 @@ public class PostMapperTest {
             List<Post> posts = mapper.selectAll();
             Assertions.assertTrue(posts.size() > 0);
             Assertions.assertNotNull(posts.get(0).getCreatedAt());
+            Assertions.assertNotNull(posts.get(0).getUpdatedAt());
+            Assertions.assertEquals(1, posts.get(0).getUserId());
+            Assertions.assertEquals(0, posts.get(0).getViewCount());
         }
     }
 }
