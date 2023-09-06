@@ -40,7 +40,7 @@ public class PostMapperTest {
             PostMapper mapper = sqlSession.getMapper(PostMapper.class);
             List<Post> posts = mapper.selectAll();
             Assertions.assertTrue(posts.size() > 0);
-            Assertions.assertNull(posts.get(0).getCreatedAt());
+            Assertions.assertNotNull(posts.get(0).getCreatedAt());
         }
     }
 }

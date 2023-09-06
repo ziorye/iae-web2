@@ -5,7 +5,7 @@
 
 <mapper namespace="day0907.mybatis.mapper.PostMapper">
 	<select id="selectAll" resultType="Post">
-		select * from post
+		select id, title, slug, cover, description, content, status, user_id, view_count, created_at as createdAt, updated_at from post;
 	</select>
 </mapper>
 
