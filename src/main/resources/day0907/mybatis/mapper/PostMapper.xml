@@ -18,6 +18,12 @@
 	<select id="selectAll" resultMap="postResultMap">
 		select * from post;
 	</select>
+	<!--<select id="selectById" parameterType="long" resultMap="postResultMap">-->
+	<select id="selectById" resultMap="postResultMap">
+		select *
+		from post
+		where id = #{id};
+	</select>
 </mapper>
 
 

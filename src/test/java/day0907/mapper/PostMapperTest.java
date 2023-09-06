@@ -46,4 +46,14 @@ public class PostMapperTest {
             Assertions.assertEquals(0, posts.get(0).getViewCount());
         }
     }
+
+    @Test
+    void selectById() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+            long id = 1;
+            Post post = mapper.selectById(id);
+            Assertions.assertEquals("npm-registry-speedup", post.getSlug());
+        }
+    }
 }
