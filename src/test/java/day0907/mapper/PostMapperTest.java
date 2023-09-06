@@ -220,4 +220,35 @@ public class PostMapperTest {
             Assertions.assertNull(post);
         }
     }
+
+    @Test
+    void deleteByIds() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+
+            int size = 3;
+            long[] ids = new long[size];
+            for (int i = 0; i < size; i++) {
+                Post postAdd = new Post();
+                LocalDateTime now = LocalDateTime.now();
+                postAdd.setTitle("title-for-deleteById-" + now);
+                postAdd.setContent("content-for-deleteById-" + now);
+                postAdd.setCreatedAt(new Date());
+                mapper.add(postAdd);
+
+                ids[i] = postAdd.getId();
+            }
+
+            // === === ===
+
+            mapper.deleteByIds(ids);
+
+            // === === ===
+
+            for (int i = 0; i < size; i++) {
+                Post post = mapper.selectById(ids[i]);
+                Assertions.assertNull(post);
+            }
+        }
+    }
 }

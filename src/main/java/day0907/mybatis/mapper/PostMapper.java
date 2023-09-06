@@ -26,4 +26,6 @@ public interface PostMapper {
     void update(Map<String, Object> map);
 
     void delById(long id);
+
+    void deleteByIds(long[] ids);
 }

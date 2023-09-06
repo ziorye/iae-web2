@@ -120,6 +120,14 @@
 	<delete id="delById">
 		delete from post where id = #{id}
 	</delete>
+
+	<delete id="deleteByIds">
+		delete from post where id
+		in
+		<foreach collection="array" item="id" separator="," open="(" close=")">
+		    #{id}
+		</foreach>
+	</delete>
 </mapper>
 
 
