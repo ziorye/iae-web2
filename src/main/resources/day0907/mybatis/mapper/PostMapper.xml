@@ -19,11 +19,11 @@
 		select * from post;
 	</select>
 	<!--<select id="selectById" parameterType="long" resultMap="postResultMap">-->
-	<select id="selectById" resultMap="postResultMap">
+	<!--<select id="selectById" resultMap="postResultMap">
 		select *
 		from post
 		where id = #{id};
-	</select>
+	</select>-->
 	<select id="sqlStatementWithSpecialTag" resultMap="postResultMap">
 		<!--select * from post where id < 10000;-->
 		/*select * from post where id &lt; 10000;*/
