@@ -11,7 +11,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PostMapperTest {
     private static SqlSessionFactory sqlSessionFactory;
@@ -85,6 +87,22 @@ public class PostMapperTest {
             post.setContent("%慢%");
 
             List<Post> posts = mapper.selectByCondition(post);
+
+            Assertions.assertTrue(posts.size() > 0);
+        }
+    }
+
+    @Test
+    void selectByConditionWithMap() {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            PostMapper mapper = sqlSession.getMapper(PostMapper.class);
+
+            Map<String, Object> map = new HashMap<>();
+            map.put("status", 1);
+            map.put("title", "npm%");
+            map.put("content", "%慢%");
+
+            List<Post> posts = mapper.selectByCondition(map);
 
             Assertions.assertTrue(posts.size() > 0);
         }
