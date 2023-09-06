@@ -2,6 +2,7 @@ package day0904.mapper;
 
 import day0904.mybatis.mapper.UserMapper;
 import day0904.mybatis.po.User;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 
+@Slf4j
 public class UserMapperTest {
 
     private static SqlSessionFactory sqlSessionFactory;
@@ -52,6 +54,12 @@ public class UserMapperTest {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = mapper.selectUser(1);
             System.out.println(user);
+
+            log.trace("trace msg");
+            log.debug("debug msg");
+            log.info("info msg");
+            log.warn("warn msg");
+            log.error("error msg");
         }
     }
 
