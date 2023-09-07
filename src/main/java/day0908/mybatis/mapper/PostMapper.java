@@ -1,6 +1,6 @@
-package day0907.mybatis.mapper;
+package day0908.mybatis.mapper;
 
-import day0907.pojo.Post;
+import day0908.pojo.Post;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

@@ -1,7 +1,7 @@
-package day0907.mapper;
+package day0908.mapper;
 
-import day0907.mybatis.mapper.PostMapper;
-import day0907.pojo.Post;
+import day0908.mybatis.mapper.PostMapper;
+import day0908.pojo.Post;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -25,7 +25,7 @@ public class PostMapperTest {
         // 创建sqlSessionFactory
 
         // mybatis配置文件
-        String resource = "day0907/mybatis/mybatis-config.xml";
+        String resource = "day0908/mybatis/mybatis-config.xml";
         // 得到配置文件流
         InputStream inputStream = Resources.getResourceAsStream(resource);
 

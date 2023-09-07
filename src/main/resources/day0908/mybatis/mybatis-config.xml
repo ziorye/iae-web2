@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</properties>
 	
 	<typeAliases>
-		<package name="day0907.pojo"/>
+		<package name="day0908.pojo"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -28,6 +28,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>
 	<mappers>
-		<package name="day0907.mybatis.mapper"/>
+		<package name="day0908.mybatis.mapper"/>
 	</mappers>
 </configuration>
